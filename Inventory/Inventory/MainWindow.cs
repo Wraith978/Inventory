@@ -62,7 +62,7 @@ namespace Inventory
                     item.SubItems.Add(thickness);
                     item.SubItems.Add(quantity.ToString());
                     item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.ToString());
+                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                     item.SubItems.Add(stockArrived.ToString());
 
                     if (i % 2 == 0)
@@ -105,7 +105,7 @@ namespace Inventory
                     item.SubItems.Add(company);
                     item.SubItems.Add(quantity.ToString());
                     item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.ToString());
+                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                     item.SubItems.Add(stockArrived.ToString());
 
                     if (i % 2 == 0)
@@ -143,7 +143,7 @@ namespace Inventory
                     item.SubItems.Add(company);
                     item.SubItems.Add(quantity.ToString());
                     item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.ToString());
+                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                     item.SubItems.Add(stockArrived.ToString());
 
                     if (i % 2 == 0)
