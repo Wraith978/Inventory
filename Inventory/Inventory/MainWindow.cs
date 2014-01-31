@@ -28,15 +28,19 @@ namespace Inventory
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.tabControl1.SelectedTab = sheetTab;
         }
 
         private void tabContainerIndexChanged(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            listView3.Items.Clear();
+            SqlDataReader reader = null;
             if (this.tabControl1.SelectedTab.Name == sheetTab.Name)
             {
                 string command = "SELECT * FROM Sheet";
-                SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0);
+                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
 
                 for(int i = 0;reader.Read();i++)
                 {
@@ -51,14 +55,15 @@ namespace Inventory
                     string thickness = record["thickness"].ToString();
                     string stockType = record["stock_type"].ToString();
 
-                    ListViewItem item = new ListViewItem("item", i);
-                    item.SubItems.Add(stockType);
+                    ListViewItem item = new ListViewItem(stockType,i);
                     item.SubItems.Add(size);
                     item.SubItems.Add(thickness);
                     item.SubItems.Add(quantity.ToString());
                     item.SubItems.Add(jobNumber.ToString());
                     item.SubItems.Add(estimatedArrival.ToString());
                     item.SubItems.Add(stockArrived.ToString());
+
+                    this.listView1.Items.Add(item);
 
                 }
                 reader.Close();
@@ -67,15 +72,72 @@ namespace Inventory
             }
             else if (this.tabControl1.SelectedTab.Name == lamTab.Name)
             {
-                //string command = "SELECT * FROM Laminate";
-                //SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-                //reader.Read();
+                //Why can't I select a joined row as TableName.columnName pretty much every other language allows that, weird implementation.
+                string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, size, laminate_company, colour, lam_code, LaminateType.lam_type AS stupid_fix  FROM Laminate INNER JOIN LaminateType ON Laminate.lam_type=LaminateType.lam_type_id INNER JOIN LaminateCompanies ON Laminate.lam_company=LaminateCompanies.laminate_company_id";
+                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
+
+                for (int i = 0; reader.Read(); i++)
+                {
+
+                    IDataRecord record = (IDataRecord)reader;
+
+                    int quantity = Int32.Parse(record["quantity"].ToString());
+                    bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                    DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                    int jobNumber = Int32.Parse(record["job_number"].ToString());
+                    string size = record["size"].ToString();
+                    string company = record["laminate_company"].ToString();
+                    string colour = record["colour"].ToString();
+                    string lamCode = record["lam_code"].ToString();
+                    string lamType = record["stupid_fix"].ToString();
+
+                    ListViewItem item = new ListViewItem(lamCode, i);
+                    item.SubItems.Add(size);
+                    item.SubItems.Add(lamType);
+                    item.SubItems.Add(colour);
+                    item.SubItems.Add(company);
+                    item.SubItems.Add(quantity.ToString());
+                    item.SubItems.Add(jobNumber.ToString());
+                    item.SubItems.Add(estimatedArrival.ToString());
+                    item.SubItems.Add(stockArrived.ToString());
+
+                    this.listView2.Items.Add(item);
+
+                }
+                reader.Close();
             }
             else if (this.tabControl1.SelectedTab.Name == edgeTab.Name)
             {
-                //string command = "SELECT * FROM Edgetape";
-                //SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-                //reader.Read();
+                string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, edgetape_thickness, EdgetapeCompanies.edgetape_company, colour, edgetape_code FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id";
+                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
+
+                for (int i = 0; reader.Read(); i++)
+                {
+
+                    IDataRecord record = (IDataRecord)reader;
+
+                    int quantity = Int32.Parse(record["quantity"].ToString());
+                    bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                    DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                    int jobNumber = Int32.Parse(record["job_number"].ToString());
+                    string thickness = record["edgetape_thickness"].ToString();
+                    string company = record["edgetape_company"].ToString();
+                    string colour = record["colour"].ToString();
+                    string edgetapeCode = record["edgetape_code"].ToString();
+
+                    ListViewItem item = new ListViewItem(edgetapeCode, i);
+                    item.SubItems.Add(thickness);
+                    item.SubItems.Add(colour);
+                    item.SubItems.Add(company);
+                    item.SubItems.Add(quantity.ToString());
+                    item.SubItems.Add(jobNumber.ToString());
+                    item.SubItems.Add(estimatedArrival.ToString());
+                    item.SubItems.Add(stockArrived.ToString());
+
+                    this.listView3.Items.Add(item);
+
+                }
+                reader.Close();
 
             }
             else

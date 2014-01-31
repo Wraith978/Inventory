@@ -56,7 +56,7 @@ namespace Inventory
 
         public Edgetape(int edgetapeID)
         {
-            string command = "SELECT * FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.edgetape_thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id WHERE edgetape_id = @edgetape_id";
+            string command = "SELECT * FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id WHERE edgetape_id = @edgetape_id";
             string[] paramName = {"edgetape_id"};
             SqlDbType[] paramTypes = {SqlDbType.Int};
             object[] param = { edgetapeID };

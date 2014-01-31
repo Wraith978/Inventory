@@ -38,8 +38,10 @@ namespace Inventory
 
         public static SqlDataReader doSQLSelect(string commandText, string[] parameterNames, SqlDbType[] parameterTypes, object[] parameters, int numParameters)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(connectionString);
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
                 SqlCommand command = new SqlCommand(commandText, connection);
 
                 for (int i = 0; i < numParameters; i++)
@@ -47,7 +49,6 @@ namespace Inventory
                     command.Parameters.Add("@" + parameterNames[i], parameterTypes[i]);
                     command.Parameters["@" + parameterNames[i]].Value = parameters[i];
                 }
-                SqlDataReader reader = null;
                 try
                 {
                     connection.Open();
@@ -58,7 +59,7 @@ namespace Inventory
                     Console.WriteLine(ex.Message);
                 }
                 return reader;
-            }
+           // }
         }
 
     }
