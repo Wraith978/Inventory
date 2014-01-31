@@ -178,10 +178,10 @@
             this.listView1.Margin = new System.Windows.Forms.Padding(0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(675, 320);
-            this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MultiSelect = false;
             // 
             // sheetType
             // 
@@ -249,10 +249,10 @@
             this.listView2.Location = new System.Drawing.Point(-1, -1);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(675, 320);
-            this.listView2.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
+            this.listView2.MultiSelect = false;
             // 
             // lamCode
             // 
@@ -325,10 +325,10 @@
             this.listView3.Location = new System.Drawing.Point(-1, -1);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(675, 320);
-            this.listView3.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
+            this.listView3.MultiSelect = false;
             // 
             // edgeCode
             // 

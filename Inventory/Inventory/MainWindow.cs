@@ -28,6 +28,8 @@ namespace Inventory
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //gross hack
+            this.tabControl1.SelectedTab = lamTab;
             this.tabControl1.SelectedTab = sheetTab;
         }
 
@@ -62,6 +64,11 @@ namespace Inventory
                     item.SubItems.Add(jobNumber.ToString());
                     item.SubItems.Add(estimatedArrival.ToString());
                     item.SubItems.Add(stockArrived.ToString());
+
+                    if (i % 2 == 0)
+                    {
+                        item.BackColor = System.Drawing.Color.LightGray;
+                    }
 
                     this.listView1.Items.Add(item);
 
@@ -101,6 +108,11 @@ namespace Inventory
                     item.SubItems.Add(estimatedArrival.ToString());
                     item.SubItems.Add(stockArrived.ToString());
 
+                    if (i % 2 == 0)
+                    {
+                        item.BackColor = System.Drawing.Color.LightGray;
+                    }
+
                     this.listView2.Items.Add(item);
 
                 }
@@ -133,6 +145,11 @@ namespace Inventory
                     item.SubItems.Add(jobNumber.ToString());
                     item.SubItems.Add(estimatedArrival.ToString());
                     item.SubItems.Add(stockArrived.ToString());
+
+                    if (i % 2 == 0)
+                    {
+                        item.BackColor = System.Drawing.Color.LightGray;
+                    }
 
                     this.listView3.Items.Add(item);
 
