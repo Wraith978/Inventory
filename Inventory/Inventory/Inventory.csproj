@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,7 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEdgeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEdgeForm.Designer.cs">
+      <DependentUpon>AddEdgeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edgetape.cs" />
+    <Compile Include="AddSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSheetForm.Designer.cs">
+      <DependentUpon>AddSheetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="Laminate.cs" />
     <Compile Include="MainWindow.cs">
@@ -53,10 +66,25 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddLamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLamForm.Designer.cs">
+      <DependentUpon>AddLamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sheet.cs" />
     <Compile Include="SQLDB.cs" />
+    <EmbeddedResource Include="AddEdgeForm.resx">
+      <DependentUpon>AddEdgeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLamForm.resx">
+      <DependentUpon>AddLamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSheetForm.resx">
+      <DependentUpon>AddSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

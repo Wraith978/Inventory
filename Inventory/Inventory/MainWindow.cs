@@ -177,5 +177,24 @@ namespace Inventory
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == sheetTab)
+            {
+                AddSheetForm sheetForm = new AddSheetForm();
+                sheetForm.Show();
+            }
+            else if (tabControl1.SelectedTab == edgeTab)
+            {
+                AddEdgeForm edgeForm = new AddEdgeForm();
+                edgeForm.Show();
+            }
+            else if (tabControl1.SelectedTab == lamTab)
+            {
+                AddLamForm lamForm = new AddLamForm();
+                lamForm.Show();
+            }
+        }
+
     }
 }
