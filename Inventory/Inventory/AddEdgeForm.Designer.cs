@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.edgeCodeBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.edgeThicknessCombo = new System.Windows.Forms.ComboBox();
+            this.edgeCompanyCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.edgeColourBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.edgeQuantityBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.edgeJobNumberBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.edgeEstimatedArrivalPicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // edgeCodeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.edgeCodeBox.Location = new System.Drawing.Point(12, 29);
+            this.edgeCodeBox.Name = "edgeCodeBox";
+            this.edgeCodeBox.Size = new System.Drawing.Size(100, 20);
+            this.edgeCodeBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -71,21 +71,21 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Edgetape Thickness";
             // 
-            // comboBox1
+            // edgeThicknessCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.edgeThicknessCombo.FormattingEnabled = true;
+            this.edgeThicknessCombo.Location = new System.Drawing.Point(119, 29);
+            this.edgeThicknessCombo.Name = "edgeThicknessCombo";
+            this.edgeThicknessCombo.Size = new System.Drawing.Size(121, 21);
+            this.edgeThicknessCombo.TabIndex = 3;
             // 
-            // comboBox2
+            // edgeCompanyCombo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(247, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 4;
+            this.edgeCompanyCombo.FormattingEnabled = true;
+            this.edgeCompanyCombo.Location = new System.Drawing.Point(247, 29);
+            this.edgeCompanyCombo.Name = "edgeCompanyCombo";
+            this.edgeCompanyCombo.Size = new System.Drawing.Size(121, 21);
+            this.edgeCompanyCombo.TabIndex = 4;
             // 
             // label3
             // 
@@ -96,12 +96,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Edgetape Company";
             // 
-            // textBox2
+            // edgeColourBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(375, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.edgeColourBox.Location = new System.Drawing.Point(375, 29);
+            this.edgeColourBox.Name = "edgeColourBox";
+            this.edgeColourBox.Size = new System.Drawing.Size(100, 20);
+            this.edgeColourBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -112,12 +112,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Edgetape Colour";
             // 
-            // textBox3
+            // edgeQuantityBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 72);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.edgeQuantityBox.Location = new System.Drawing.Point(12, 72);
+            this.edgeQuantityBox.Name = "edgeQuantityBox";
+            this.edgeQuantityBox.Size = new System.Drawing.Size(100, 20);
+            this.edgeQuantityBox.TabIndex = 8;
             // 
             // label5
             // 
@@ -128,12 +128,12 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Quantity";
             // 
-            // textBox4
+            // edgeJobNumberBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 72);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.edgeJobNumberBox.Location = new System.Drawing.Point(119, 72);
+            this.edgeJobNumberBox.Name = "edgeJobNumberBox";
+            this.edgeJobNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.edgeJobNumberBox.TabIndex = 10;
             // 
             // label6
             // 
@@ -144,12 +144,12 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Job Number";
             // 
-            // dateTimePicker1
+            // edgeEstimatedArrivalPicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(226, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 12;
+            this.edgeEstimatedArrivalPicker.Location = new System.Drawing.Point(226, 72);
+            this.edgeEstimatedArrivalPicker.Name = "edgeEstimatedArrivalPicker";
+            this.edgeEstimatedArrivalPicker.Size = new System.Drawing.Size(200, 20);
+            this.edgeEstimatedArrivalPicker.TabIndex = 12;
             // 
             // label7
             // 
@@ -187,19 +187,19 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.edgeEstimatedArrivalPicker);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.edgeJobNumberBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.edgeQuantityBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.edgeColourBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.edgeCompanyCombo);
+            this.Controls.Add(this.edgeThicknessCombo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.edgeCodeBox);
             this.Name = "AddEdgeForm";
             this.Text = "Add Edgetape";
             this.ResumeLayout(false);
@@ -209,19 +209,19 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox edgeCodeBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox edgeThicknessCombo;
+        private System.Windows.Forms.ComboBox edgeCompanyCombo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox edgeColourBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox edgeQuantityBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox edgeJobNumberBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker edgeEstimatedArrivalPicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

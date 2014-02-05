@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lamCodeBox = new System.Windows.Forms.TextBox();
+            this.lamSizeBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lamColourBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lamTypeCombo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lamCompanyCombo = new System.Windows.Forms.ComboBox();
+            this.lamQuantityBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lamJobNumberBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lamEstimatedArrivalPicker = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -57,19 +57,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Laminate Code";
             // 
-            // textBox1
+            // lamCodeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.lamCodeBox.Location = new System.Drawing.Point(13, 30);
+            this.lamCodeBox.Name = "lamCodeBox";
+            this.lamCodeBox.Size = new System.Drawing.Size(100, 20);
+            this.lamCodeBox.TabIndex = 1;
             // 
-            // textBox2
+            // lamSizeBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.lamSizeBox.Location = new System.Drawing.Point(120, 30);
+            this.lamSizeBox.Name = "lamSizeBox";
+            this.lamSizeBox.Size = new System.Drawing.Size(100, 20);
+            this.lamSizeBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -80,12 +80,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Laminate Size";
             // 
-            // textBox3
+            // lamColourBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.lamColourBox.Location = new System.Drawing.Point(12, 74);
+            this.lamColourBox.Name = "lamColourBox";
+            this.lamColourBox.Size = new System.Drawing.Size(100, 20);
+            this.lamColourBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -96,13 +96,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Laminate Colour";
             // 
-            // comboBox1
+            // lamTypeCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(229, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.lamTypeCombo.FormattingEnabled = true;
+            this.lamTypeCombo.Location = new System.Drawing.Point(229, 30);
+            this.lamTypeCombo.Name = "lamTypeCombo";
+            this.lamTypeCombo.Size = new System.Drawing.Size(121, 21);
+            this.lamTypeCombo.TabIndex = 6;
             // 
             // label4
             // 
@@ -122,20 +122,20 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Laminate Company";
             // 
-            // comboBox2
+            // lamCompanyCombo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(361, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 9;
+            this.lamCompanyCombo.FormattingEnabled = true;
+            this.lamCompanyCombo.Location = new System.Drawing.Point(361, 29);
+            this.lamCompanyCombo.Name = "lamCompanyCombo";
+            this.lamCompanyCombo.Size = new System.Drawing.Size(121, 21);
+            this.lamCompanyCombo.TabIndex = 9;
             // 
-            // textBox4
+            // lamQuantityBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(123, 74);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.lamQuantityBox.Location = new System.Drawing.Point(123, 74);
+            this.lamQuantityBox.Name = "lamQuantityBox";
+            this.lamQuantityBox.Size = new System.Drawing.Size(100, 20);
+            this.lamQuantityBox.TabIndex = 10;
             // 
             // label6
             // 
@@ -146,12 +146,12 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Quantity";
             // 
-            // textBox5
+            // lamJobNumberBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(229, 74);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 12;
+            this.lamJobNumberBox.Location = new System.Drawing.Point(229, 74);
+            this.lamJobNumberBox.Name = "lamJobNumberBox";
+            this.lamJobNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.lamJobNumberBox.TabIndex = 12;
             // 
             // label7
             // 
@@ -162,12 +162,12 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Job Number";
             // 
-            // dateTimePicker1
+            // lamEstimatedArrivalPicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(335, 74);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.lamEstimatedArrivalPicker.Location = new System.Drawing.Point(335, 74);
+            this.lamEstimatedArrivalPicker.Name = "lamEstimatedArrivalPicker";
+            this.lamEstimatedArrivalPicker.Size = new System.Drawing.Size(200, 20);
+            this.lamEstimatedArrivalPicker.TabIndex = 14;
             // 
             // label8
             // 
@@ -205,20 +205,20 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.lamEstimatedArrivalPicker);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.lamJobNumberBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.lamQuantityBox);
+            this.Controls.Add(this.lamCompanyCombo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lamTypeCombo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.lamColourBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lamSizeBox);
+            this.Controls.Add(this.lamCodeBox);
             this.Controls.Add(this.label1);
             this.Name = "AddLamForm";
             this.Text = "Add Laminate";
@@ -230,20 +230,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lamCodeBox;
+        private System.Windows.Forms.TextBox lamSizeBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox lamColourBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox lamTypeCombo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox lamCompanyCombo;
+        private System.Windows.Forms.TextBox lamQuantityBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox lamJobNumberBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker lamEstimatedArrivalPicker;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.sheetTypeBox = new System.Windows.Forms.TextBox();
+            this.sheetThicknessBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.stockSizeBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.sheetQuantityBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.sheetJobNumberBox = new System.Windows.Forms.TextBox();
+            this.sheetEstimatedArrivalPicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -53,19 +53,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Stock Type";
             // 
-            // textBox1
+            // sheetTypeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.sheetTypeBox.Location = new System.Drawing.Point(13, 30);
+            this.sheetTypeBox.Name = "sheetTypeBox";
+            this.sheetTypeBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.sheetTypeBox.Size = new System.Drawing.Size(100, 20);
+            this.sheetTypeBox.TabIndex = 1;
             // 
-            // textBox2
+            // sheetThicknessBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.sheetThicknessBox.Location = new System.Drawing.Point(120, 29);
+            this.sheetThicknessBox.Name = "sheetThicknessBox";
+            this.sheetThicknessBox.Size = new System.Drawing.Size(100, 20);
+            this.sheetThicknessBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -76,12 +77,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Stock Thickness";
             // 
-            // textBox3
+            // stockSizeBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(227, 29);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.stockSizeBox.Location = new System.Drawing.Point(227, 29);
+            this.stockSizeBox.Name = "stockSizeBox";
+            this.stockSizeBox.Size = new System.Drawing.Size(100, 20);
+            this.stockSizeBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -92,12 +93,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Stock Size";
             // 
-            // textBox4
+            // sheetQuantityBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 6;
+            this.sheetQuantityBox.Location = new System.Drawing.Point(12, 76);
+            this.sheetQuantityBox.Name = "sheetQuantityBox";
+            this.sheetQuantityBox.Size = new System.Drawing.Size(100, 20);
+            this.sheetQuantityBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -117,19 +118,19 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Job Number";
             // 
-            // textBox5
+            // sheetJobNumberBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 76);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
+            this.sheetJobNumberBox.Location = new System.Drawing.Point(120, 76);
+            this.sheetJobNumberBox.Name = "sheetJobNumberBox";
+            this.sheetJobNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.sheetJobNumberBox.TabIndex = 9;
             // 
-            // dateTimePicker1
+            // sheetEstimatedArrivalPicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(230, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.sheetEstimatedArrivalPicker.Location = new System.Drawing.Point(230, 76);
+            this.sheetEstimatedArrivalPicker.Name = "sheetEstimatedArrivalPicker";
+            this.sheetEstimatedArrivalPicker.Size = new System.Drawing.Size(200, 20);
+            this.sheetEstimatedArrivalPicker.TabIndex = 10;
             // 
             // label6
             // 
@@ -167,16 +168,16 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.sheetEstimatedArrivalPicker);
+            this.Controls.Add(this.sheetJobNumberBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.sheetQuantityBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.stockSizeBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.sheetThicknessBox);
+            this.Controls.Add(this.sheetTypeBox);
             this.Controls.Add(this.label1);
             this.Name = "AddSheetForm";
             this.Text = "Add Sheet";
@@ -188,16 +189,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox sheetTypeBox;
+        private System.Windows.Forms.TextBox sheetThicknessBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox stockSizeBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox sheetQuantityBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox sheetJobNumberBox;
+        private System.Windows.Forms.DateTimePicker sheetEstimatedArrivalPicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
