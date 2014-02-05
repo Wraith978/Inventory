@@ -196,5 +196,23 @@ namespace Inventory
             }
         }
 
+        private void sheetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddSheetForm sheetForm = new AddSheetForm();
+            sheetForm.Show();
+        }
+
+        private void laminateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddLamForm lamForm = new AddLamForm();
+            lamForm.Show();
+        }
+
+        private void edgetapeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEdgeForm edgeForm = new AddEdgeForm();
+            edgeForm.Show();
+        }
+
     }
 }

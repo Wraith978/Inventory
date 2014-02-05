@@ -21,5 +21,19 @@ namespace Inventory
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(this.sheetTypeBox.Text == "" || this.sheetThicknessBox.Text == "" || this.sheetQuantityBox.Text == "" || this.sheetJobNumberBox.Text == "" || this.sheetSizeBox.Text == "")
+            {
+                MessageBox.Show("Please enter a value for all fields.");
+            }
+            else
+            {
+                Sheet newSheet = new Sheet(Int32.Parse(this.sheetQuantityBox.Text), this.sheetEstimatedArrivalPicker.Value, Int32.Parse(this.sheetQuantityBox.Text), this.sheetSizeBox.Text, this.sheetThicknessBox.Text, this.sheetTypeBox.Text, false);
+                newSheet.InsertSheet();
+                this.Close();
+            }
+        }
     }
 }

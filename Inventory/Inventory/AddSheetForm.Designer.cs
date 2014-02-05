@@ -32,7 +32,7 @@
             this.sheetTypeBox = new System.Windows.Forms.TextBox();
             this.sheetThicknessBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.stockSizeBox = new System.Windows.Forms.TextBox();
+            this.sheetSizeBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.sheetQuantityBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,12 +77,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Stock Thickness";
             // 
-            // stockSizeBox
+            // sheetSizeBox
             // 
-            this.stockSizeBox.Location = new System.Drawing.Point(227, 29);
-            this.stockSizeBox.Name = "stockSizeBox";
-            this.stockSizeBox.Size = new System.Drawing.Size(100, 20);
-            this.stockSizeBox.TabIndex = 4;
+            this.sheetSizeBox.Location = new System.Drawing.Point(227, 29);
+            this.sheetSizeBox.Name = "sheetSizeBox";
+            this.sheetSizeBox.Size = new System.Drawing.Size(100, 20);
+            this.sheetSizeBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -149,6 +149,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -174,7 +175,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.sheetQuantityBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.stockSizeBox);
+            this.Controls.Add(this.sheetSizeBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sheetThicknessBox);
             this.Controls.Add(this.sheetTypeBox);
@@ -192,7 +193,7 @@
         private System.Windows.Forms.TextBox sheetTypeBox;
         private System.Windows.Forms.TextBox sheetThicknessBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox stockSizeBox;
+        private System.Windows.Forms.TextBox sheetSizeBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox sheetQuantityBox;
         private System.Windows.Forms.Label label4;
