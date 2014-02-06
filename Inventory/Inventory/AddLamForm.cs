@@ -60,5 +60,19 @@ namespace Inventory
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (lamCodeBox.Text == "" || lamColourBox.Text == "" || lamJobNumberBox.Text == "" || lamQuantityBox.Text == "" || lamSizeBox.Text == "")
+            {
+                MessageBox.Show("Please enter a value for all fields.");
+            }
+            else
+            {
+                Laminate newLam = new Laminate(Int32.Parse(lamQuantityBox.Text), lamEstimatedArrivalPicker.Value, Int32.Parse(lamJobNumberBox.Text), lamSizeBox.Text, lamCompanyCombo.ValueMember, lamColourBox.Text, lamCodeBox.Text, lamTypeCombo.ValueMember, false);
+                newLam.InsertLaminate();
+                this.Close();
+            }
+        }
     }
 }
