@@ -43,10 +43,12 @@ namespace Inventory
                 lamCompanyCombo.DataSource = dataSource;
                 lamCompanyCombo.DisplayMember = "Name";
                 lamCompanyCombo.ValueMember = "ID";
-
+            }
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
                 //populate Lam types.
                 command = "SELECT * FROM LaminateType";
-                reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
+                SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
                 List<LaminateTypes> dataSource2 = new List<LaminateTypes>();
                 while (reader.Read())
                 {

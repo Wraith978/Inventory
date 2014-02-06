@@ -43,10 +43,12 @@ namespace Inventory
                 edgeCompanyCombo.DataSource = dataSource;
                 edgeCompanyCombo.DisplayMember = "Name";
                 edgeCompanyCombo.ValueMember = "ID";
-
+            }
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
                 //populate Lam types.
                 command = "SELECT * FROM EdgetapeThickness";
-                reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
+                SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
                 List<EdgeThickness> dataSource2 = new List<EdgeThickness>();
                 while (reader.Read())
                 {
