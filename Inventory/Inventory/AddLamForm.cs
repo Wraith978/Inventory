@@ -31,29 +31,32 @@ namespace Inventory
 
             //populate Lam Companies
             string command = "SELECT * FROM LaminateCompanies";
-            SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-            List<LaminateCompanies> dataSource = new List<LaminateCompanies>();
-            while (reader.Read())
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
             {
-                IDataRecord record = (IDataRecord)reader;
-                dataSource.Add(new LaminateCompanies() { Name = record["laminate_company"].ToString(), ID = record["laminate_company_id"].ToString() });
-            }
-            lamCompanyCombo.DataSource = dataSource;
-            lamCompanyCombo.DisplayMember = "Name";
-            lamCompanyCombo.ValueMember = "ID";
+                SqlDataReader reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
+                List<LaminateCompanies> dataSource = new List<LaminateCompanies>();
+                while (reader.Read())
+                {
+                    IDataRecord record = (IDataRecord)reader;
+                    dataSource.Add(new LaminateCompanies() { Name = record["laminate_company"].ToString(), ID = record["laminate_company_id"].ToString() });
+                }
+                lamCompanyCombo.DataSource = dataSource;
+                lamCompanyCombo.DisplayMember = "Name";
+                lamCompanyCombo.ValueMember = "ID";
 
-            //populate Lam types.
-            command = "SELECT * FROM LaminateType";
-            reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-            List<LaminateTypes> dataSource2 = new List<LaminateTypes>();
-            while (reader.Read())
-            {
-                IDataRecord record = (IDataRecord)reader;
-                dataSource2.Add(new LaminateTypes() { Name = record["lam_type"].ToString(), ID = record["lam_type_id"].ToString() });
+                //populate Lam types.
+                command = "SELECT * FROM LaminateType";
+                reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
+                List<LaminateTypes> dataSource2 = new List<LaminateTypes>();
+                while (reader.Read())
+                {
+                    IDataRecord record = (IDataRecord)reader;
+                    dataSource2.Add(new LaminateTypes() { Name = record["lam_type"].ToString(), ID = record["lam_type_id"].ToString() });
+                }
+                lamTypeCombo.DataSource = dataSource2;
+                lamTypeCombo.DisplayMember = "Name";
+                lamTypeCombo.ValueMember = "ID";
             }
-            lamTypeCombo.DataSource = dataSource2;
-            lamTypeCombo.DisplayMember = "Name";
-            lamTypeCombo.ValueMember = "ID";
         }
 
         private void button2_Click(object sender, EventArgs e)

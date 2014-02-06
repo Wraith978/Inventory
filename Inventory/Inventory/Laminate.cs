@@ -69,23 +69,27 @@ namespace Inventory
             SqlDbType[] paramTypes = {SqlDbType.Int};
             object[] param = {lamID};
 
-            SqlDataReader reader = SQLDB.doSQLSelect(command, paramName, paramTypes, param, 1);
-            reader.Read();
-            IDataRecord record = (IDataRecord)reader;
 
-            quantity = Int32.Parse(record["quantity"].ToString());
-            stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
-            estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
-            jobNumber = Int32.Parse(record["job_number"].ToString());
-            size = record["size"].ToString();
-            company = record["lam_company"].ToString();
-            colour = record["colour"].ToString();
-            lamCode = record["lam_code"].ToString();
-            lamType = record["lam_type"].ToString();
-            lamTypeID = Int32.Parse(record["lam_type_id"].ToString());
-            companyID = Int32.Parse(record["company_id"].ToString());
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
+                SqlDataReader reader = SQLDB.doSQLSelect(command, paramName, paramTypes, param, 1, connection);
+                reader.Read();
+                IDataRecord record = (IDataRecord)reader;
 
-            reader.Close();
+                quantity = Int32.Parse(record["quantity"].ToString());
+                stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                jobNumber = Int32.Parse(record["job_number"].ToString());
+                size = record["size"].ToString();
+                company = record["lam_company"].ToString();
+                colour = record["colour"].ToString();
+                lamCode = record["lam_code"].ToString();
+                lamType = record["lam_type"].ToString();
+                lamTypeID = Int32.Parse(record["lam_type_id"].ToString());
+                companyID = Int32.Parse(record["company_id"].ToString());
+
+                reader.Close();
+            }
         }
 
         public int InsertLaminate()
@@ -103,14 +107,16 @@ namespace Inventory
             SqlDbType[] paramTypes2 = { SqlDbType.Int, SqlDbType.VarChar };
             object[] param2 = { jobNumber, lamCode };
 
-            SqlDataReader reader = SQLDB.doSQLSelect(command, paramNames2, paramTypes2, param2, 2);
-            reader.Read(); //have to read to get to first (and only) entry
-            IDataRecord record = (IDataRecord)reader;
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
+                SqlDataReader reader = SQLDB.doSQLSelect(command, paramNames2, paramTypes2, param2, 2, connection);
+                reader.Read(); //have to read to get to first (and only) entry
+                IDataRecord record = (IDataRecord)reader;
 
-            this.lamID = Int32.Parse(record["lam_id"].ToString());
+                this.lamID = Int32.Parse(record["lam_id"].ToString());
 
-            reader.Close();
-
+                reader.Close();
+            }
             return lamID;
         }
 

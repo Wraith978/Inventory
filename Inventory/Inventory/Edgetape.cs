@@ -61,22 +61,25 @@ namespace Inventory
             SqlDbType[] paramTypes = {SqlDbType.Int};
             object[] param = { edgetapeID };
 
-            SqlDataReader reader = SQLDB.doSQLSelect(command, paramName, paramTypes, param, 1);
-            reader.Read();
-            IDataRecord record = (IDataRecord)reader;
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
+                SqlDataReader reader = SQLDB.doSQLSelect(command, paramName, paramTypes, param, 1, connection);
+                reader.Read();
+                IDataRecord record = (IDataRecord)reader;
 
-            quantity = Int32.Parse(record["quantity"].ToString());
-            stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
-            estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
-            jobNumber = Int32.Parse(record["job_number"].ToString());
-            thickness = record["thickness"].ToString();
-            company = record["edgetape_company"].ToString();
-            companyID = Int32.Parse(record["edgetape_company_id"].ToString());
-            colour = record["colour"].ToString();
-            edgetapeCode = record["edgetape_code"].ToString();
-            thicknessID = Int32.Parse(record["thickness_id"].ToString());
+                quantity = Int32.Parse(record["quantity"].ToString());
+                stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                jobNumber = Int32.Parse(record["job_number"].ToString());
+                thickness = record["thickness"].ToString();
+                company = record["edgetape_company"].ToString();
+                companyID = Int32.Parse(record["edgetape_company_id"].ToString());
+                colour = record["colour"].ToString();
+                edgetapeCode = record["edgetape_code"].ToString();
+                thicknessID = Int32.Parse(record["thickness_id"].ToString());
 
-            reader.Close();
+                reader.Close();
+            }
         }
 
         public int InsertEdgetape()
@@ -94,14 +97,16 @@ namespace Inventory
             SqlDbType[] paramTypes2 = { SqlDbType.Int, SqlDbType.VarChar };
             object[] param2 = { jobNumber, edgetapeCode };
 
-            SqlDataReader reader = SQLDB.doSQLSelect(command, paramNames2, paramTypes2, param2, 2);
-            reader.Read();
-            IDataRecord record = (IDataRecord)reader;
+            using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
+            {
+                SqlDataReader reader = SQLDB.doSQLSelect(command, paramNames2, paramTypes2, param2, 2, connection);
+                reader.Read();
+                IDataRecord record = (IDataRecord)reader;
 
-            this.edgetapeID = Int32.Parse(record["edgetape_id"].ToString());
+                this.edgetapeID = Int32.Parse(record["edgetape_id"].ToString());
 
-            reader.Close();
-
+                reader.Close();
+            }
             return edgetapeID;
         }
 

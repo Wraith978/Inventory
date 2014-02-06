@@ -42,119 +42,128 @@ namespace Inventory
             if (this.tabControl1.SelectedTab.Name == sheetTab.Name)
             {
                 string command = "SELECT * FROM Sheet";
-                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-
-                for(int i = 0;reader.Read();i++)
+                using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
                 {
+                    reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
 
-                    IDataRecord record = (IDataRecord)reader;
-
-                    int quantity = Int32.Parse(record["quantity"].ToString());
-                    bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
-                    DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
-                    int jobNumber = Int32.Parse(record["job_number"].ToString());
-                    string size = record["size"].ToString();
-                    string thickness = record["thickness"].ToString();
-                    string stockType = record["stock_type"].ToString();
-
-                    ListViewItem item = new ListViewItem(stockType,i);
-                    item.SubItems.Add(size);
-                    item.SubItems.Add(thickness);
-                    item.SubItems.Add(quantity.ToString());
-                    item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
-                    item.SubItems.Add(stockArrived.ToString());
-
-                    if (i % 2 == 0)
+                    for (int i = 0; reader.Read(); i++)
                     {
-                        item.BackColor = System.Drawing.Color.LightGray;
+
+                        IDataRecord record = (IDataRecord)reader;
+
+                        int quantity = Int32.Parse(record["quantity"].ToString());
+                        bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                        DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                        int jobNumber = Int32.Parse(record["job_number"].ToString());
+                        string size = record["size"].ToString();
+                        string thickness = record["thickness"].ToString();
+                        string stockType = record["stock_type"].ToString();
+
+                        ListViewItem item = new ListViewItem(stockType, i);
+                        item.SubItems.Add(size);
+                        item.SubItems.Add(thickness);
+                        item.SubItems.Add(quantity.ToString());
+                        item.SubItems.Add(jobNumber.ToString());
+                        item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
+                        item.SubItems.Add(stockArrived.ToString());
+
+                        if (i % 2 == 0)
+                        {
+                            item.BackColor = System.Drawing.Color.LightGray;
+                        }
+
+                        this.listView1.Items.Add(item);
+
                     }
-
-                    this.listView1.Items.Add(item);
-
+                    reader.Close();
                 }
-                reader.Close();
-
                 
             }
             else if (this.tabControl1.SelectedTab.Name == lamTab.Name)
             {
                 //Why can't I select a joined row as TableName.columnName pretty much every other language allows that, weird implementation.
                 string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, size, laminate_company, colour, lam_code, LaminateType.lam_type AS stupid_fix  FROM Laminate INNER JOIN LaminateType ON Laminate.lam_type=LaminateType.lam_type_id INNER JOIN LaminateCompanies ON Laminate.lam_company=LaminateCompanies.laminate_company_id";
-                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
 
-                for (int i = 0; reader.Read(); i++)
+                using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
                 {
+                    reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
 
-                    IDataRecord record = (IDataRecord)reader;
-
-                    int quantity = Int32.Parse(record["quantity"].ToString());
-                    bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
-                    DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
-                    int jobNumber = Int32.Parse(record["job_number"].ToString());
-                    string size = record["size"].ToString();
-                    string company = record["laminate_company"].ToString();
-                    string colour = record["colour"].ToString();
-                    string lamCode = record["lam_code"].ToString();
-                    string lamType = record["stupid_fix"].ToString();
-
-                    ListViewItem item = new ListViewItem(lamCode, i);
-                    item.SubItems.Add(size);
-                    item.SubItems.Add(lamType);
-                    item.SubItems.Add(colour);
-                    item.SubItems.Add(company);
-                    item.SubItems.Add(quantity.ToString());
-                    item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
-                    item.SubItems.Add(stockArrived.ToString());
-
-                    if (i % 2 == 0)
+                    for (int i = 0; reader.Read(); i++)
                     {
-                        item.BackColor = System.Drawing.Color.LightGray;
+
+                        IDataRecord record = (IDataRecord)reader;
+
+                        int quantity = Int32.Parse(record["quantity"].ToString());
+                        bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                        DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                        int jobNumber = Int32.Parse(record["job_number"].ToString());
+                        string size = record["size"].ToString();
+                        string company = record["laminate_company"].ToString();
+                        string colour = record["colour"].ToString();
+                        string lamCode = record["lam_code"].ToString();
+                        string lamType = record["stupid_fix"].ToString();
+
+                        ListViewItem item = new ListViewItem(lamCode, i);
+                        item.SubItems.Add(size);
+                        item.SubItems.Add(lamType);
+                        item.SubItems.Add(colour);
+                        item.SubItems.Add(company);
+                        item.SubItems.Add(quantity.ToString());
+                        item.SubItems.Add(jobNumber.ToString());
+                        item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
+                        item.SubItems.Add(stockArrived.ToString());
+
+                        if (i % 2 == 0)
+                        {
+                            item.BackColor = System.Drawing.Color.LightGray;
+                        }
+
+                        this.listView2.Items.Add(item);
+
                     }
-
-                    this.listView2.Items.Add(item);
-
+                    reader.Close();
                 }
-                reader.Close();
             }
             else if (this.tabControl1.SelectedTab.Name == edgeTab.Name)
             {
                 string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, edgetape_thickness, EdgetapeCompanies.edgetape_company, colour, edgetape_code FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id";
-                reader = SQLDB.doSQLSelect(command, null, null, null, 0);
-
-                for (int i = 0; reader.Read(); i++)
+                using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
                 {
+                    reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
 
-                    IDataRecord record = (IDataRecord)reader;
-
-                    int quantity = Int32.Parse(record["quantity"].ToString());
-                    bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
-                    DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
-                    int jobNumber = Int32.Parse(record["job_number"].ToString());
-                    string thickness = record["edgetape_thickness"].ToString();
-                    string company = record["edgetape_company"].ToString();
-                    string colour = record["colour"].ToString();
-                    string edgetapeCode = record["edgetape_code"].ToString();
-
-                    ListViewItem item = new ListViewItem(edgetapeCode, i);
-                    item.SubItems.Add(thickness);
-                    item.SubItems.Add(colour);
-                    item.SubItems.Add(company);
-                    item.SubItems.Add(quantity.ToString());
-                    item.SubItems.Add(jobNumber.ToString());
-                    item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
-                    item.SubItems.Add(stockArrived.ToString());
-
-                    if (i % 2 == 0)
+                    for (int i = 0; reader.Read(); i++)
                     {
-                        item.BackColor = System.Drawing.Color.LightGray;
+
+                        IDataRecord record = (IDataRecord)reader;
+
+                        int quantity = Int32.Parse(record["quantity"].ToString());
+                        bool stockArrived = Boolean.Parse(record["stock_arrived"].ToString());
+                        DateTime estimatedArrival = DateTime.Parse(record["estimated_arrival"].ToString());
+                        int jobNumber = Int32.Parse(record["job_number"].ToString());
+                        string thickness = record["edgetape_thickness"].ToString();
+                        string company = record["edgetape_company"].ToString();
+                        string colour = record["colour"].ToString();
+                        string edgetapeCode = record["edgetape_code"].ToString();
+
+                        ListViewItem item = new ListViewItem(edgetapeCode, i);
+                        item.SubItems.Add(thickness);
+                        item.SubItems.Add(colour);
+                        item.SubItems.Add(company);
+                        item.SubItems.Add(quantity.ToString());
+                        item.SubItems.Add(jobNumber.ToString());
+                        item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
+                        item.SubItems.Add(stockArrived.ToString());
+
+                        if (i % 2 == 0)
+                        {
+                            item.BackColor = System.Drawing.Color.LightGray;
+                        }
+
+                        this.listView3.Items.Add(item);
+
                     }
-
-                    this.listView3.Items.Add(item);
-
+                    reader.Close();
                 }
-                reader.Close();
 
             }
             else
