@@ -25,7 +25,7 @@ namespace Inventory
             public string ID { get; set; }
         }
 
-        public AddLamForm()
+        public AddLamForm(object[] existingValues)
         {
             InitializeComponent();
 

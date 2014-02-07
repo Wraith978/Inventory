@@ -12,7 +12,7 @@ namespace Inventory
 {
     public partial class AddSheetForm : Form
     {
-        public AddSheetForm()
+        public AddSheetForm(object[] existingValues)
         {
             InitializeComponent();
         }

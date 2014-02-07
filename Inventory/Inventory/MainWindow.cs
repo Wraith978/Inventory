@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 
 namespace Inventory
 {
@@ -16,13 +15,6 @@ namespace Inventory
     {
         public MainWindow()
         {
-            /*
-            string command = "INSERT INTO TestTable VALUES (@words, @number, @date)";
-            string [] paramNames = {"words", "number", "date"};
-            SqlDbType[] paramTypes = {SqlDbType.VarChar, SqlDbType.Int, SqlDbType.DateTime};
-            object [] param = { "I am amazing", 26, DateTime.Now};
-            SQLDB db = new SQLDB();
-            db.doSQL(command, paramNames, paramTypes, param, 3);*/
             InitializeComponent();
         }
 
@@ -67,6 +59,8 @@ namespace Inventory
                         item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                         item.SubItems.Add(stockArrived.ToString());
 
+                        item.Name = record["sheet_id"].ToString();
+
                         if (i % 2 == 0)
                         {
                             item.BackColor = System.Drawing.Color.LightGray;
@@ -82,7 +76,7 @@ namespace Inventory
             else if (this.tabControl1.SelectedTab.Name == lamTab.Name)
             {
                 //Why can't I select a joined row as TableName.columnName pretty much every other language allows that, weird implementation.
-                string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, size, laminate_company, colour, lam_code, LaminateType.lam_type AS stupid_fix  FROM Laminate INNER JOIN LaminateType ON Laminate.lam_type=LaminateType.lam_type_id INNER JOIN LaminateCompanies ON Laminate.lam_company=LaminateCompanies.laminate_company_id";
+                string command = "SELECT lam_id, quantity, stock_arrived, estimated_arrival, job_number, size, laminate_company, colour, lam_code, LaminateType.lam_type AS stupid_fix  FROM Laminate INNER JOIN LaminateType ON Laminate.lam_type=LaminateType.lam_type_id INNER JOIN LaminateCompanies ON Laminate.lam_company=LaminateCompanies.laminate_company_id";
 
                 using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
                 {
@@ -113,6 +107,8 @@ namespace Inventory
                         item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                         item.SubItems.Add(stockArrived.ToString());
 
+                        item.Name = record["lam_id"].ToString();
+
                         if (i % 2 == 0)
                         {
                             item.BackColor = System.Drawing.Color.LightGray;
@@ -126,7 +122,7 @@ namespace Inventory
             }
             else if (this.tabControl1.SelectedTab.Name == edgeTab.Name)
             {
-                string command = "SELECT quantity, stock_arrived, estimated_arrival, job_number, edgetape_thickness, EdgetapeCompanies.edgetape_company, colour, edgetape_code FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id";
+                string command = "SELECT edgetape_id, quantity, stock_arrived, estimated_arrival, job_number, edgetape_thickness, EdgetapeCompanies.edgetape_company, colour, edgetape_code FROM Edgetape INNER JOIN EdgetapeThickness ON Edgetape.thickness=EdgetapeThickness.edgetape_thickness_id INNER JOIN EdgetapeCompanies ON Edgetape.edgetape_company=EdgetapeCompanies.edgetape_company_id";
                 using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
                 {
                     reader = SQLDB.doSQLSelect(command, null, null, null, 0, connection);
@@ -153,6 +149,8 @@ namespace Inventory
                         item.SubItems.Add(jobNumber.ToString());
                         item.SubItems.Add(estimatedArrival.Month + "/" + estimatedArrival.Day + "/" + estimatedArrival.Year);
                         item.SubItems.Add(stockArrived.ToString());
+
+                        item.Name = record["edgetape_id"].ToString();
 
                         if (i % 2 == 0)
                         {
@@ -190,36 +188,36 @@ namespace Inventory
         {
             if (tabControl1.SelectedTab == sheetTab)
             {
-                AddSheetForm sheetForm = new AddSheetForm();
+                AddSheetForm sheetForm = new AddSheetForm(null);
                 sheetForm.Show();
             }
             else if (tabControl1.SelectedTab == edgeTab)
             {
-                AddEdgeForm edgeForm = new AddEdgeForm();
+                AddEdgeForm edgeForm = new AddEdgeForm(null);
                 edgeForm.Show();
             }
             else if (tabControl1.SelectedTab == lamTab)
             {
-                AddLamForm lamForm = new AddLamForm();
+                AddLamForm lamForm = new AddLamForm(null);
                 lamForm.Show();
             }
         }
 
         private void sheetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddSheetForm sheetForm = new AddSheetForm();
+            AddSheetForm sheetForm = new AddSheetForm(null);
             sheetForm.Show();
         }
 
         private void laminateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddLamForm lamForm = new AddLamForm();
+            AddLamForm lamForm = new AddLamForm(null);
             lamForm.Show();
         }
 
         private void edgetapeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEdgeForm edgeForm = new AddEdgeForm();
+            AddEdgeForm edgeForm = new AddEdgeForm(null);
             edgeForm.Show();
         }
 

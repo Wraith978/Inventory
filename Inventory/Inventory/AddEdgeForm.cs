@@ -25,8 +25,9 @@ namespace Inventory
             public string ID { get; set; }
         }
 
-        public AddEdgeForm()
+        public AddEdgeForm(object[] existingValues)
         {
+            
             InitializeComponent();
 
             //populate Lam Companies
@@ -59,6 +60,7 @@ namespace Inventory
                 edgeThicknessCombo.DisplayMember = "Name";
                 edgeThicknessCombo.ValueMember = "ID";
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
