@@ -61,6 +61,13 @@ namespace Inventory
                 edgeThicknessCombo.ValueMember = "ID";
             }
 
+            if (existingValues != null)
+            {
+                string existingID = (string)existingValues[0];
+                
+
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -15,6 +15,11 @@ namespace Inventory
         public AddSheetForm(object[] existingValues)
         {
             InitializeComponent();
+
+            if(existingValues != null)
+            {
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

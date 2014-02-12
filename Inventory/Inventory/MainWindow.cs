@@ -221,5 +221,28 @@ namespace Inventory
             edgeForm.Show();
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedTab.Name == sheetTab.Name)
+            {
+                if(listView1.SelectedItems.Count >= 1)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Please select an item to edit.");
+                }
+            }
+            else if (tabControl1.SelectedTab.Name == lamTab.Name)
+            {
+                
+            }
+            else if (tabControl1.SelectedTab.Name == edgeTab.Name)
+            {
+
+            }
+        }
+
     }
 }

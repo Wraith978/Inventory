@@ -59,6 +59,11 @@ namespace Inventory
                 lamTypeCombo.DisplayMember = "Name";
                 lamTypeCombo.ValueMember = "ID";
             }
+
+            if (existingValues != null)
+            {
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
