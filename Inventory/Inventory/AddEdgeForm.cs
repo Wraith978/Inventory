@@ -13,6 +13,7 @@ namespace Inventory
 {
     public partial class AddEdgeForm : Form
     {
+        private Edgetape haveEdit;
         private class EdgeCompanies
         {
             public string Name { get; set; }
@@ -25,11 +26,12 @@ namespace Inventory
             public string ID { get; set; }
         }
 
-        public AddEdgeForm(object[] existingValues)
+        public AddEdgeForm(Edgetape existing)
         {
             
             InitializeComponent();
 
+            haveEdit = existing;
             //populate Lam Companies
             string command = "SELECT * FROM EdgetapeCompanies";
             using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
@@ -61,10 +63,15 @@ namespace Inventory
                 edgeThicknessCombo.ValueMember = "ID";
             }
 
-            if (existingValues != null)
+            if (existing != null)
             {
-                string existingID = (string)existingValues[0];
-                
+                edgeCodeBox.Text = existing.EdgetapeCode;
+                edgeColourBox.Text = existing.Colour;
+                edgeCompanyCombo.SelectedValue = existing.CompanyID;
+                edgeEstimatedArrivalPicker.Value = existing.EstimatedArrival;
+                edgeJobNumberBox.Text = existing.JobNumber.ToString();
+                edgeQuantityBox.Text = existing.Quantity.ToString();
+                edgeThicknessCombo.SelectedValue = existing.ThicknessID;
 
             }
 

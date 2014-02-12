@@ -12,13 +12,22 @@ namespace Inventory
 {
     public partial class AddSheetForm : Form
     {
-        public AddSheetForm(object[] existingValues)
+        private Sheet haveSheet;
+
+        public AddSheetForm(Sheet existing)
         {
             InitializeComponent();
 
-            if(existingValues != null)
-            {
+            haveSheet = existing;
 
+            if(existing != null)
+            {
+                sheetEstimatedArrivalPicker.Value = existing.EstimatedArrival;
+                sheetJobNumberBox.Text = existing.JobNumber.ToString();
+                sheetQuantityBox.Text = existing.Quantity.ToString();
+                sheetSizeBox.Text = existing.Size;
+                sheetThicknessBox.Text = existing.Thickness;
+                sheetTypeBox.Text = existing.StockType;
             }
         }
 
@@ -35,8 +44,15 @@ namespace Inventory
             }
             else
             {
-                Sheet newSheet = new Sheet(Int32.Parse(this.sheetQuantityBox.Text), this.sheetEstimatedArrivalPicker.Value, Int32.Parse(this.sheetQuantityBox.Text), this.sheetSizeBox.Text, this.sheetThicknessBox.Text, this.sheetTypeBox.Text, false);
-                newSheet.InsertSheet();
+                if (haveSheet != null)
+                {
+
+                }
+                else
+                {
+                    Sheet newSheet = new Sheet(Int32.Parse(this.sheetQuantityBox.Text), this.sheetEstimatedArrivalPicker.Value, Int32.Parse(this.sheetQuantityBox.Text), this.sheetSizeBox.Text, this.sheetThicknessBox.Text, this.sheetTypeBox.Text, false);
+                    newSheet.InsertSheet();
+                }
                 this.Close();
             }
         }

@@ -227,7 +227,7 @@ namespace Inventory
             {
                 if(listView1.SelectedItems.Count >= 1)
                 {
-
+                    Sheet thisSheet = new Sheet(Int32.Parse(listView1.SelectedItems[0].Name));
                 }
                 else
                 {
@@ -236,11 +236,25 @@ namespace Inventory
             }
             else if (tabControl1.SelectedTab.Name == lamTab.Name)
             {
-                
+                if (listView2.SelectedItems.Count >= 1)
+                {
+                    Laminate thisLam = new Laminate(Int32.Parse(listView2.SelectedItems[0].Name));
+                }
+                else
+                {
+                    MessageBox.Show("Please select an item to edit.");
+                }
             }
             else if (tabControl1.SelectedTab.Name == edgeTab.Name)
             {
-
+                if (listView3.SelectedItems.Count >= 1)
+                {
+                    Edgetape thisSheet = new Edgetape(Int32.Parse(listView3.SelectedItems[0].Name));
+                }
+                else
+                {
+                    MessageBox.Show("Please select an item to edit.");
+                }
             }
         }
 

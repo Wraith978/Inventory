@@ -13,6 +13,8 @@ namespace Inventory
 {
     public partial class AddLamForm : Form
     {
+        private Laminate haveLam;
+
         private class LaminateCompanies
         {
             public string Name { get; set; }
@@ -25,10 +27,11 @@ namespace Inventory
             public string ID { get; set; }
         }
 
-        public AddLamForm(object[] existingValues)
+        public AddLamForm(Laminate existing)
         {
             InitializeComponent();
 
+            haveLam = existing;
             //populate Lam Companies
             string command = "SELECT * FROM LaminateCompanies";
             using (SqlConnection connection = new SqlConnection(SQLDB.GetConnectionString()))
@@ -60,9 +63,16 @@ namespace Inventory
                 lamTypeCombo.ValueMember = "ID";
             }
 
-            if (existingValues != null)
+            if (existing != null)
             {
-
+                lamCodeBox.Text = existing.LamCode;
+                lamColourBox.Text = existing.Colour;
+                lamCompanyCombo.SelectedValue = existing.CompanyID;
+                lamEstimatedArrivalPicker.Value = existing.EstimatedArrival;
+                lamJobNumberBox.Text = existing.JobNumber.ToString();
+                lamQuantityBox.Text = existing.Quantity.ToString();
+                lamSizeBox.Text = existing.Size;
+                lamTypeCombo.SelectedValue = existing.LamTypeID;
             }
         }
 
